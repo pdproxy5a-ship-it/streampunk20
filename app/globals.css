@@ -1,0 +1,323 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --neon-pink: #ff00ff;
+  --neon-cyan: #00ffff;
+  --neon-yellow: #ffff00;
+  --neon-green: #00ff00;
+  --neon-purple: #ff00cc;
+  --dark-space: #0a0a1f;
+  --deep-blue: #000033;
+  --matrix-green: #00ff41;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 10px currentColor; }
+  50% { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+body {
+  font-family: 'Courier New', 'Segoe UI', monospace;
+  background: linear-gradient(135deg, var(--dark-space) 0%, var(--deep-blue) 100%);
+  color: var(--neon-green);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.cyber-container {
+  background: rgba(10, 10, 31, 0.85);
+  border: 2px solid var(--neon-cyan);
+  margin: 20px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-button {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  color: black;
+  border: none;
+  padding: 15px 25px;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: 8px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.cyber-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px var(--neon-cyan);
+}
+
+.cyber-input {
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--neon-green);
+  border: 2px solid var(--neon-pink);
+  padding: 15px 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  margin: 8px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.cyber-input:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.cyber-text {
+  text-shadow: 0 0 10px currentColor;
+  font-weight: bold;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.marquee-cyber {
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+  color: var(--neon-yellow);
+  padding: 20px;
+  border: 1px solid var(--neon-cyan);
+  border-radius: 10px;
+  font-family: 'Courier New', monospace;
+  margin: 25px 0;
+  overflow: hidden;
+}
+
+.music-player-cyber {
+  background: rgba(0, 0, 0, 0.9);
+  border: 2px solid var(--neon-yellow);
+  padding: 30px;
+  margin: 30px 0;
+  border-radius: 15px;
+  box-shadow: 0 0 40px rgba(255, 255, 0, 0.3);
+}
+
+.progress-bar-cyber {
+  width: 100%;
+  height: 15px;
+  background: rgba(0, 0, 128, 0.6);
+  border: 2px solid var(--neon-pink);
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill-cyber {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+  width: 0%;
+  transition: width 0.1s linear;
+  border-radius: 8px;
+}
+
+.track-list-cyber {
+  list-style: none;
+  margin: 30px 0;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+.track-item-cyber {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--neon-cyan);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.track-item-cyber:hover {
+  border-color: var(--neon-yellow);
+  transform: translateY(-5px);
+}
+
+.track-item-cyber.playing {
+  background: rgba(255, 255, 0, 0.1);
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.4);
+}
+
+.track-artwork-cyber {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: black;
+  animation: float 3s ease-in-out infinite;
+}
+
+.track-info-cyber {
+  flex: 1;
+}
+
+.track-title-cyber {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--neon-yellow);
+  margin-bottom: 8px;
+}
+
+.track-artist-cyber {
+  color: var(--neon-cyan);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.track-meta-cyber {
+  color: var(--neon-green);
+  font-size: 12px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.loading-cyber {
+  text-align: center;
+  color: var(--neon-yellow);
+  font-size: 20px;
+  padding: 50px;
+}
+
+.error-cyber {
+  background: linear-gradient(135deg, #ff0000, #ff6b6b);
+  color: white;
+  padding: 20px;
+  border: 2px solid var(--neon-yellow);
+  margin: 20px 0;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.genre-tags-cyber {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0;
+  justify-content: center;
+}
+
+.genre-tag-cyber {
+  background: rgba(0, 255, 255, 0.1);
+  color: var(--neon-cyan);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.genre-tag-cyber:hover, .genre-tag-cyber.active {
+  background: var(--neon-cyan);
+  color: black;
+  transform: scale(1.1);
+}
+
+.stats-bar-cyber {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  border: 1px solid var(--neon-pink);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.crawl-status {
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid var(--neon-green);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.crawl-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.stat-card {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--neon-cyan);
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--neon-yellow);
+}
+
+.stat-label {
+  color: var(--neon-cyan);
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .cyber-container {
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .track-list-cyber {
+    grid-template-columns: 1fr;
+  }
+  
+  .track-item-cyber {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .stats-bar-cyber {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyber-input {
+    max-width: 100%;
+  }
+  
+  .track-meta-cyber {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
